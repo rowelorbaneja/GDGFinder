@@ -16,13 +16,14 @@
 
 package com.example.android.gdgfinder.add
 
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+
 import com.example.android.gdgfinder.R
 import com.example.android.gdgfinder.databinding.AddGdgFragmentBinding
 import com.google.android.material.snackbar.Snackbar
@@ -45,9 +46,9 @@ class AddGdgFragment : Fragment() {
         viewModel.showSnackBarEvent.observe(this, Observer {
             if (it == true) { // Observed state is true.
                 Snackbar.make(
-                        activity!!.findViewById(android.R.id.content),
-                        getString(R.string.application_submitted),
-                        Snackbar.LENGTH_SHORT // How long to display the message.
+                    activity!!.findViewById(android.R.id.content),
+                    getString(R.string.application_submitted),
+                    Snackbar.LENGTH_SHORT // How long to display the message.
                 ).show()
                 viewModel.doneShowingSnackbar()
             }
@@ -56,4 +57,5 @@ class AddGdgFragment : Fragment() {
         setHasOptionsMenu(true)
         return binding.root
     }
+
 }
